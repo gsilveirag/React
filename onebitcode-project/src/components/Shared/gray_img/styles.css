@@ -1,5 +1,9 @@
-.planet img{
+.imagem{
     width: 300px;
     border-radius: 50px;
     filter: grayscale(100%);
+}
+
+.color-img{
+    width: 300px;
 }

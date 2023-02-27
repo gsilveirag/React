@@ -1,11 +1,25 @@
-import "./styles.css"
+import { GrayImg } from "../../Shared/gray_img"
+import { Description } from "../../Shared/description_with_link"
+import { clickOnPlanet } from ".."
 
-export function Planet(){
+export function Planet(props){
+    let title;
+
+    if(props.title_with_underline)
+        title = <h4><u>{props.name}</u></h4>
+    else
+        title = <h4>{props.name}</h4>
+
     return(
-        <div className="planet">
-            <h5>Mercurio:</h5>
-            <p>O planeta Mercúrio possui três recordes: é o mais rápido, o mais próximo do sol e o menor planeta do sistema solar.</p>
-            <img src="http://www.astronoo.com/images/planetes/mercure/mercure-messenger.jpg"/>
-        </div>
-    )
+
+            <div onClick={() => props.clickOnPlanet(props.name)} className="planet">
+                <h4><strong>{title}</strong></h4>
+                <Description descricao={props.descricao}
+                url_descricao={props.url_descricao}
+                />
+                <br/>
+                <GrayImg img_url={props.img_url} gray = {props.gray} />
+            </div>
+            
+        )
 }
